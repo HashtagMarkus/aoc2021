@@ -1,13 +1,9 @@
 import std/strutils
 import "../benchmark"
+import "part1"
 
 const
     WINDOW_SIZE = 3
-
-# WTF no ++ operator in nim?
-proc increment(x: ptr int): int =
-  x[] += 1
-  x[]
 
 proc calculate(inputSeq: seq[string]): seq[int] =
     # calculate inputSequence
@@ -49,23 +45,9 @@ proc solve() =
         res = calculate(inputSeq)
         lastDepth = 0
         count = 0
+
+    evaluate(res)
     
-    for curDepth in res.items:
-        var status = $count & "(N/A - no previous measurement)"
-
-        if lastDepth > 0:
-            status = (  if curDepth > lastDepth: 
-                            $increment(addr count) & "(increased)" 
-                        elif curDepth == lastDepth:
-                            $count & "(no change)"
-                        else: 
-                            $count & "(decreased)"
-                     )
-        
-        echo $curDepth, ": ", status
-        lastDepth = curDepth
-
-    echo "Total: ", $count
 
 benchmark "part2":
     solve()
