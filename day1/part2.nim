@@ -10,11 +10,13 @@ proc increment(x: ptr int): int =
 
 proc calculate(inputSeq: seq[string]): seq[int] =
     # calculate inputSequence
-    var resPos = 0 # position of result array
-    var winPos = 0 
-    var line: string
-    var res = newSeq[int](1)
-    var i: int
+    var 
+        resPos = 0 # position of result array
+        winPos = 0 
+        line: string
+        res = newSeq[int](1)
+        i: int
+
     while i < inputSeq.len:
         line = inputSeq[i]
         if isEmptyOrWhitespace(line):
