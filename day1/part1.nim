@@ -1,4 +1,5 @@
 import std/strutils
+import "../benchmark"
 
 # WTF no ++ operator in nim?
 proc increment(x: ptr int): int =
@@ -28,5 +29,6 @@ proc solve() =
 
     echo "Total: ", $count
 
-solve()
+benchmark "part1":
+    solve()
 

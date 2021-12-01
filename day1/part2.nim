@@ -1,4 +1,5 @@
 import std/strutils
+import "../benchmark"
 
 const
     WINDOW_SIZE = 3
@@ -66,5 +67,6 @@ proc solve() =
 
     echo "Total: ", $count
 
-solve()
+benchmark "part2":
+    solve()
 
